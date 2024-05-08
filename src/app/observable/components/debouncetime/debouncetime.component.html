@@ -1,0 +1,33 @@
+<div class="my-2">
+    <h2 class="text-center">DebounceTime & DistinctUntileChanged</h2>
+    <br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <strong>Ex - 01 <span class="text-primary">DebounceTime</span></strong>
+            <hr>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lg">Search...</label>
+                <div class="col-sm-10">
+                    <input #myInput type="text" class="form-control form-control-lg"
+                        placeholder="Search">
+                </div>
+            </div>
+            <br>
+            <span *ngIf="reqData != null">Requested Data: <strong class="text-success">{{reqData}}</strong></span>
+        </div>
+        <div class="col-md-6">
+            <strong>Ex - 02 <span class="text-warning">DistinctUntilChanged</span></strong>
+            <hr>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lg">Search...</label>
+                <div class="col-sm-10">
+                    <input #myInput2 type="text" class="form-control form-control-lg"
+                        placeholder="Search">
+                </div>
+            </div>
+            <br>
+            <span *ngIf="reqData2 != null">Requested Data: <strong class="text-success">{{reqData2}}</strong></span>
+        </div>
+    </div>
+</div>

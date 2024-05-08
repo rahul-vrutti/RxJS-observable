@@ -1,0 +1,29 @@
+.red{
+    width: 90px;
+    background-color: red;
+    border-radius: 4px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.green {
+    width: 90px;
+    background-color: green;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.yellow {
+    width: 90px;
+    background-color: yellow;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper{
+    display: flex;
+    gap: 4px;
+}

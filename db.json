@@ -1,0 +1,13 @@
+{
+  "user": {
+    "id": 1,
+    "name": "Sam Manekshaw",
+    "email": "abc@gmail.com",
+    "gender": "Male",
+    "phone": 9809899099,
+    "skill": "Angular, Typescript"
+  },
+  "exhaustmap": {
+    "data": 3
+  }
+}
