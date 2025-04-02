@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
   searchResults;
   searchResultCount;
 
-  constructor(private _searchService: SearchService) {}
+  constructor(private _searchService: SearchService) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
     // this._searchService.getSearches('angular').subscribe(res => {
     //   console.log(res)
     // })
-    
+
     const formValue = this.searchForm.valueChanges;
     formValue.pipe(
       filter(() => this.searchForm.valid),
@@ -36,13 +36,13 @@ export class SearchComponent implements OnInit, AfterViewInit {
       debounceTime(500),
       distinctUntilChanged(),
       switchMap(data => this._searchService.getSearches(data))
-      )
-    .subscribe(res => {
-      // console.log(res);
-      this.searchResults = res;
-      // console.log('count ', Object.keys(res).length);
-      this.searchResultCount = Object.keys(res).length;
-    })
+    )
+      .subscribe(res => {
+        console.log(res);
+        this.searchResults = res;
+        // console.log('count ', Object.keys(res).length);
+        this.searchResultCount = Object.keys(res).length;
+      })
   }
 
 }

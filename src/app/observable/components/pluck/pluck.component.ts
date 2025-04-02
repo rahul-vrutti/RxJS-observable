@@ -11,13 +11,13 @@ import { from, map, pluck, toArray } from 'rxjs';
 })
 export class PluckComponent implements OnInit {
 
-  constructor() {}
+  constructor() { }
 
   user = [
-    {name: 'Ayush', skills: 'Angular', job: {title: 'MEAN Developer', exp: '2 years'}},
-    {name: 'Smit', skills: 'React', job: {title: 'Frontend Developer', exp: '1 years'}},
-    {name: 'Keval', skills: 'ViewJs', job: {title: 'Frontend Developer', exp: 'Freasher'}},
-    {name: 'Renil', skills: 'NextJs', job: {title: 'Fullstack Developer', exp: '2 years'}},
+    { name: 'Ayush', skills: 'Angular', job: { title: 'MEAN Developer', exp: '2 years' } },
+    { name: 'Smit', skills: 'React', job: { title: 'Frontend Developer', exp: '1 years' } },
+    { name: 'Keval', skills: 'ViewJs', job: { title: 'Frontend Developer', exp: 'Freasher' } },
+    { name: 'Renil', skills: 'NextJs', job: { title: 'Fullstack Developer', exp: '2 years' } },
   ];
   data;
   data2;
@@ -30,10 +30,10 @@ export class PluckComponent implements OnInit {
       pluck('name'),
       toArray()
     )
-    .subscribe(res => {
-      // console.log(res);
-      this.data = res;
-    });
+      .subscribe(res => {
+        // console.log(res);
+        this.data = res;
+      });
 
     //Ex - 02
     from(this.user).pipe(
@@ -41,11 +41,11 @@ export class PluckComponent implements OnInit {
       map(x => x?.job?.title),
       toArray()
     )
-    .subscribe(res => {
-      // console.log(res);
-      this.data2 = res;
-    });
-    
+      .subscribe(res => {
+        // console.log(res);
+        this.data2 = res;
+      });
+
   }
 
 }

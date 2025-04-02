@@ -30,7 +30,7 @@ export class ConcatMapNotificationComponent implements OnInit {
     }
   ]
 
-  constructor(private designUtility: DesignUtilityService) {}
+  constructor(private designUtility: DesignUtilityService) { }
 
   ngOnInit(): void {
 
@@ -38,12 +38,12 @@ export class ConcatMapNotificationComponent implements OnInit {
       // mergeMap(res => this.getHtml(res))
       concatMap(res => this.getHtml(res))
     )
-    .subscribe(res => {
-      this.designUtility.print2(res, 'elContainer')
-    });
+      .subscribe(res => {
+        this.designUtility.print2(res, 'elContainer')
+      });
   }
 
-  getHtml(data){
+  getHtml(data) {
     return of(` <div class="header flex ">
                   <div class="app">
                     <img src="${data.icon}" width="12">

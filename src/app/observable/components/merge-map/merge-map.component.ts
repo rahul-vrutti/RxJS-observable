@@ -11,43 +11,47 @@ import { DesignUtilityService } from '../../../appServices/design-utility.servic
 })
 export class MergeMapComponent implements OnInit {
 
-  constructor(private designUtility: DesignUtilityService) {}
+  constructor(private designUtility: DesignUtilityService) { }
 
   ngOnInit(): void {
-    
-    const source = from(['Tech','Comedy','News']);
+
+    const source = from(['Tech', 'Comedy', 'News']);
 
     //Ex - 01 Map
     source.pipe(
-      map(res => this.getData(res))
+      map(res => this.getData(res)),
     )
-    .subscribe(res => res.subscribe(res2 => {
-      // console.log(res);
-      this.designUtility.print(res2, 'elContainer1');
-    }));
+      .subscribe(res => {
+        // console.log('res: ', res);
+        res.subscribe(res2 => {
+          // console.log('res2: ', res2);
+          // console.log(res);
+          this.designUtility.print(res2, 'elContainer1');
+        })
+      });
 
     //Ex - 02 | Map + MergeAll
     source.pipe(
       map(res => this.getData(res)),
       mergeAll()
     )
-    .subscribe(res => {
-      // console.log(res);
-      this.designUtility.print(res, 'elContainer2');
-    });
+      .subscribe(res => {
+        console.log(res);
+        this.designUtility.print(res, 'elContainer2');
+      });
 
     //Ex - 03 | MergeMap
     source.pipe(
       mergeMap(res => this.getData(res))
     )
-    .subscribe(res => {
-      console.log(res);
-      this.designUtility.print(res, 'elContainer3');
-    });
+      .subscribe(res => {
+        console.log(res);
+        this.designUtility.print(res, 'elContainer3');
+      });
 
   }
 
-  
+
 
 
   getData(data) {

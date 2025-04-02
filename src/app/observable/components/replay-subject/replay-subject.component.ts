@@ -20,21 +20,21 @@ export class ReplaySubjectComponent implements OnInit {
   user3List = [];
 
   //SubscribeModes
-  subscribeMode2:boolean = false;
-  subscribeMode3:boolean = false;
+  subscribeMode2: boolean = false;
+  subscribeMode3: boolean = false;
 
   //subscription
-  subscription2:Subscription;
-  subscription3:Subscription;
+  subscription2: Subscription;
+  subscription3: Subscription;
 
   //toogle properties
-  methodInterval:boolean = false;
-  intSubscription:Subscription;
+  methodInterval: boolean = false;
+  intSubscription: Subscription;
 
-  constructor(private _designUtility: DesignUtilityService) {}
+  constructor(private _designUtility: DesignUtilityService) { }
 
   ngOnInit(): void {
-    
+
     this._designUtility.videoEmit.subscribe(res => {
       this.user1List.push(res);
     })
@@ -47,10 +47,10 @@ export class ReplaySubjectComponent implements OnInit {
 
   //user 2 subscribe
   user2Subscribe() {
-    if(this.subscribeMode2){
+    if (this.subscribeMode2) {
       this.subscription2.unsubscribe();
     }
-    else{
+    else {
       this.subscription2 = this._designUtility.videoEmit.subscribe(res => {
         this.user2List.push(res);
       });
@@ -59,10 +59,10 @@ export class ReplaySubjectComponent implements OnInit {
   }
   //user 3 subscribe
   user3Subscribe() {
-    if(this.subscribeMode3){
+    if (this.subscribeMode3) {
       this.subscription3.unsubscribe();
     }
-    else{
+    else {
       this.subscription3 = this._designUtility.videoEmit.subscribe(res => {
         this.user3List.push(res);
       });
@@ -74,16 +74,16 @@ export class ReplaySubjectComponent implements OnInit {
   toggleMethod() {
     const broadCastVideo = interval(1000);
 
-    if(!this.methodInterval){
+    if (!this.methodInterval) {
       this.intSubscription = broadCastVideo.subscribe(res => {
         // console.log(res);
-        this._designUtility.videoEmit.next('Video '+res);
+        this._designUtility.videoEmit.next('Video ' + res);
       })
     }
-    else{
+    else {
       this.intSubscription.unsubscribe();
     }
-    
+
     this.methodInterval = !this.methodInterval;
   }
 

@@ -5,19 +5,19 @@ import { Comp2Component } from "../../../components/comp2/comp2.component";
 import { Comp3Component } from "../../../components/comp3/comp3.component";
 
 @Component({
-    selector: 'app-subject',
-    standalone: true,
-    templateUrl: './subject.component.html',
-    styleUrl: './subject.component.scss',
-    imports: [Comp1Component, Comp2Component, Comp3Component]
+  selector: 'app-subject',
+  standalone: true,
+  templateUrl: './subject.component.html',
+  styleUrl: './subject.component.scss',
+  imports: [Comp1Component, Comp2Component, Comp3Component]
 })
 export class SubjectComponent implements OnInit, OnDestroy {
-  
-  userName:string;
+
+  userName: string;
 
   constructor(private _designUtility: DesignUtilityService) {
     this._designUtility.userName.subscribe(res => {
-    this.userName = res;
+      this.userName = res;
     })
   }
 

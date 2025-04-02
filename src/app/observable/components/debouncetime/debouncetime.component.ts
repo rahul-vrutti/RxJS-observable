@@ -14,13 +14,13 @@ export class DebouncetimeComponent implements OnInit, AfterViewInit {
   reqData = null;
   reqData2 = null;
 
-  @ViewChild('myInput') myInput:ElementRef;
-  @ViewChild('myInput2') myInput2:ElementRef;
+  @ViewChild('myInput') myInput: ElementRef;
+  @ViewChild('myInput2') myInput2: ElementRef;
 
-  constructor() {}
-  
+  constructor() { }
+
   ngOnInit(): void {
-    
+
   }
 
   ngAfterViewInit(): void {
@@ -28,15 +28,16 @@ export class DebouncetimeComponent implements OnInit, AfterViewInit {
     //Ex - 01 Debounce Time
     const searchTerm = fromEvent<any>(this.myInput.nativeElement, 'keyup').pipe(
       map(event => event.target.value),
-      debounceTime(500)
+      debounceTime(500),
     );
+
     searchTerm.subscribe(res => {
       console.log(res)
       this.reqData = res;
 
       setTimeout(() => {
         this.reqData = null;
-      },2000)
+      }, 2000)
     });
 
     //Ex - 01 Distinct Until Changed
@@ -51,7 +52,7 @@ export class DebouncetimeComponent implements OnInit, AfterViewInit {
 
       setTimeout(() => {
         this.reqData2 = null;
-      },2000)
+      }, 2000)
     });
   }
 
